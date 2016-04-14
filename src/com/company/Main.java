@@ -13,7 +13,7 @@ public class Main extends java.lang.Thread {
     private ServerSocket server;
     DateFormat sdf = new SimpleDateFormat("MM_dd_HH_mm");
     DateFormat sdf2 = new SimpleDateFormat("HH,mm,ss");
-    private final int ServerPort = 8765;// 要監控的port
+    private final int ServerPort = 6789;// 要監控的port
     FileWriter fw;
     private File fp = new File("acc.txt");
     public Main() {
@@ -56,14 +56,15 @@ public class Main extends java.lang.Thread {
                 }
 
                 System.out.println("我取得的值:" + data);
-                System.out.println("我取得的值:" + data.substring(0, 10));
-                fw.write("T:" + sdf2.format(System.currentTimeMillis()) + "\r\n");
-                fw.flush();
+               // System.out.println("我取得的值:" + data.substring(0, 10));
+
                 if(data.contains("Label")){
+                    fw.write("T:" + sdf2.format(System.currentTimeMillis()) + "\r\n");
                     fw.write(data);
+                    fw.write("\r\n");
+                    fw.flush();
                 }
-                fw.write("\r\n");
-                fw.flush();
+
                 in.close();
                 in = null;
                 socket.close();

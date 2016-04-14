@@ -6,8 +6,8 @@ import java.io.BufferedOutputStream;
 import java.util.Scanner;
 
 public class SocketClient {
-    private String address = "127.0.0.1";// ³s½uªºip
-    private int port = 8765;// ³s½uªºport
+    private String address = "127.0.0.1";// ï¿½sï¿½uï¿½ï¿½ip
+    private int port = 6789;// ï¿½sï¿½uï¿½ï¿½port
 
     public SocketClient() {
 
@@ -18,7 +18,7 @@ public class SocketClient {
             client.connect(isa, 10000);
             BufferedOutputStream out = new BufferedOutputStream(client
                     .getOutputStream());
-            // °e¥X¦r¦ê
+            // ï¿½eï¿½Xï¿½rï¿½ï¿½
             String ss = sc.next();
             out.write(ss.getBytes());
             out.flush();
@@ -28,7 +28,7 @@ public class SocketClient {
             client = null;
 
         } catch (java.io.IOException e) {
-            System.out.println("Socket³s½u¦³°ÝÃD !");
+            System.out.println("Socketï¿½sï¿½uï¿½ï¿½ï¿½ï¿½ï¿½D !");
             System.out.println("IOException :" + e.toString());
         }
     }
